@@ -8,7 +8,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   storageClassName: local-path
-
-
   hostPath:
     path: "/data/dbs-local-storage/service"
