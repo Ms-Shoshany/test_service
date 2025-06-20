@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-service
+  labels:
+    app: test_service
+    service: test_service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test_service
+      service: test_service
+  template:
+    metadata:
+      labels:
+        app: test_service
+        service: test_service
+    spec:
+      containers:
+      - name: test-service-container
+        image: hhana982/test:1.<version>
+        ports:
+        - containerPort: 5000
+        env: 
+        - name: name
+          value: "hanna"
