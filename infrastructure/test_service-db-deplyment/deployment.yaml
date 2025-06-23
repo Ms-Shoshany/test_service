@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-service-db
+  labels:
+    app: test_service-db
+    service: test_service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test_service-db
+      service: test_service
+  template:
+    metadata:
+      labels:
+        app: test_service-db
+        service: test_service
+    spec:
+      containers:
+      - name: test-service-db-container
+        image: mysql:1.<version>
+        ports:
+        - containerPort: 3306
+        env: 
+        - name: MYSQL_ROOT_PASSWORD
+          value: "rootpw"
