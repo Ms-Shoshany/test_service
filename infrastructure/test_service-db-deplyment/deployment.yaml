@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: test-service-db-container
-        image: mysql:1.<version>
+        image: mysql
         ports:
         - containerPort: 3306
         env: 
